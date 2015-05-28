@@ -8,16 +8,7 @@
  * Copyright 2012, Codrops
  * http://www.codrops.com
  */
-(function (factory) {
-    'use strict';
-    if (typeof define === 'function' && define.amd) {
-        define(['jquery'], factory);
-    } else if (typeof exports !== 'undefined') {
-        module.exports = factory(require('jquery'));
-    } else {
-        factory(jQuery);
-    }
-})(function ($) {
+(function ($) {
     'use strict';
 
     function Hoverdir(element, options) {
@@ -138,15 +129,15 @@
             // the width and height of the current div
             var w = this.$el.width(),
                 h = this.$el.height(),
-                // calculate the x and y to get an angle to the center of the div from that x and y.
-                // gets the x value relative to the center of the DIV and "normalize" it
+            // calculate the x and y to get an angle to the center of the div from that x and y.
+            // gets the x value relative to the center of the DIV and "normalize" it
                 x = (coordinates.x - this.$el.offset().left - (w / 2)) * (w > h ? (h / w) : 1),
                 y = (coordinates.y - this.$el.offset().top - (h / 2)) * (h > w ? (w / h) : 1),
-                // the angle and the direction from where the mouse came in/went out clockwise (TRBL=0123);
-                // first calculate the angle of the point,
-                // add 180 deg to get rid of the negative values
-                // divide by 90 to get the quadrant
-                // add 3 and do a modulo by 4 to shift the quadrants to a proper clockwise TRBL (top/right/bottom/left) **/
+            // the angle and the direction from where the mouse came in/went out clockwise (TRBL=0123);
+            // first calculate the angle of the point,
+            // add 180 deg to get rid of the negative values
+            // divide by 90 to get the quadrant
+            // add 3 and do a modulo by 4 to shift the quadrants to a proper clockwise TRBL (top/right/bottom/left) **/
                 direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
             return direction;
         },
@@ -159,11 +150,11 @@
         _getStyle: function (direction) {
             var fromStyle, toStyle,
                 slideFromTop = {'left': '0', 'top': '-100%'},
-            slideFromBottom = {'left': '0', 'top': '100%'},
-            slideFromLeft = {'left': '-100%', 'top': '0'},
-            slideFromRight = {'left': '100%', 'top': '0'},
-            slideTop = {'top': '0'},
-            slideLeft = {'left': '0'};
+                slideFromBottom = {'left': '0', 'top': '100%'},
+                slideFromLeft = {'left': '-100%', 'top': '0'},
+                slideFromRight = {'left': '100%', 'top': '0'},
+                slideTop = {'top': '0'},
+                slideLeft = {'left': '0'};
 
             switch (direction) {
                 case 0:
@@ -271,4 +262,4 @@
     };
 
     $.fn.hoverdir.Constructor = Hoverdir;
-});
+})(jQuery);
