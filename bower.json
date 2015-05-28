@@ -1,0 +1,24 @@
+{
+  "name": "DirectionAwareHoverEffect",
+  "version": "1.1.2",
+  "homepage": "https://github.com/itonics/DirectionAwareHoverEffect",
+  "authors": [
+    "Anil Maharjan <anil.maharjan@itonics.de>"
+  ],
+  "description": "Direction aware hover effect",
+  "main": "js/jquery.hoverdir.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "hover"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
